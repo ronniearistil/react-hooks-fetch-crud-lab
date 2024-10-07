@@ -1,12 +1,19 @@
 import React from "react";
 
-function QuestionList() {
-  return (
-    <section>
-      <h1>Quiz Questions</h1>
-      <ul>{/* display QuestionItem components here after fetching */}</ul>
-    </section>
-  );
+function QuestionList({ questions, deleteQuestion }) {
+    return (
+        <section>
+            <h1>Question List</h1>
+            {questions.map((question) => (
+                <div key={question.id}>
+                    <p>{question.prompt}</p>
+                    <button onClick={() => deleteQuestion(question.id)}>Delete Question</button>
+                </div>
+            ))}
+        </section>
+    );
 }
 
 export default QuestionList;
+
+
